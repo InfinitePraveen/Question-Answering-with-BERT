@@ -1,0 +1,35 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+env/
+.venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# # Model artifacts (too large for git, downloaded/trained locally instead)
+# models/*
+# !models/.gitkeep
+
+# HuggingFace cache
+.cache/
+~/.cache/huggingface/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Flask
+instance/
+*.log
+
+# Data (downloaded at runtime, not committed)
+# data/*.json
