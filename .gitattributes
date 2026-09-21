@@ -1,0 +1,1 @@
+models/bert-squad-finetuned/model.safetensors filter=lfs diff=lfs merge=lfs -text
