@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question Answering with BERT</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <header>
+    <h1>🤖 Question Answering with BERT</h1>
+    <p class="subtitle">Fine-tuned on SQuAD &mdash; paste a passage, ask a question, get the answer.</p>
+  </header>
+
+  <main>
+    <form method="POST" action="/predict">
+      <label for="context">Context passage</label>
+      <textarea id="context" name="context" rows="8" placeholder="Paste a paragraph here...">{{ context }}</textarea>
+
+      <label for="question">Question</label>
+      <input type="text" id="question" name="question" placeholder="Ask something about the passage above..." value="{{ question }}">
+
+      <button type="submit">Get Answer</button>
+    </form>
+
+    {% if error %}
+      <div class="result error">
+        <p>{{ error }}</p>
+      </div>
+    {% endif %}
+
+    {% if answer %}
+      <div class="result">
+        <h2>Answer</h2>
+        <p class="answer">{{ answer }}</p>
+        <p class="confidence">Confidence: {{ score }}%</p>
+      </div>
+    {% endif %}
+
+    <p class="model-note">Currently serving predictions from: <code>{{ model_source }}</code></p>
+  </main>
+
+  <footer>
+    <p>Built by Praveen &mdash; part of my data science / ML portfolio.</p>
+    <p>
+      <a href="https://github.com/InfinitePraveen" target="_blank" rel="noopener">GitHub: InfinitePraveen</a>
+      &nbsp;|&nbsp;
+      <a href="https://www.linkedin.com/in/infinitepraveen" target="_blank" rel="noopener">LinkedIn: infinitepraveen</a>
+    </p>
+  </footer>
+
+</body>
+</html>
